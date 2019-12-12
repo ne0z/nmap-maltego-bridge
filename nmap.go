@@ -10,7 +10,7 @@ import (
 )
 
 func scanOpenTcpPorts(subnet string, ports string) (io.Reader, error) {
-	c := exec.Command("/usr/local/bin/nmap", "-oX", "-", "-sV", subnet, "-p", ports, "--open")
+	c := exec.Command("/usr/local/bin/nmap", "-oX", "-", "-sV", subnet, "--open")
 	cout, cerr := c.Output()
 	if cerr != nil {
 		return nil, fmt.Errorf(cerr.Error())
